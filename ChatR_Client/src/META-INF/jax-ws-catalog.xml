@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/ChatR_Server/ChatR?wsdl" uri="wsdl/localhost_8080/ChatR_Server/ChatR.wsdl"/>
+    <system systemId="http://localhost:8080/ChatR_Server/ChatR?xsd=1" uri="wsdl/localhost_8080/ChatR_Server/ChatR.xsd_1"/>
+    <system systemId="http://localhost:8080/ChatR_Server/NewWebService?wsdl" uri="wsdl/localhost_8080/ChatR_Server/NewWebService.wsdl"/>
+    <system systemId="http://localhost:8080/ChatR_Server/NewWebService?xsd=1" uri="wsdl/localhost_8080/ChatR_Server/NewWebService.xsd_1"/>
+</catalog>

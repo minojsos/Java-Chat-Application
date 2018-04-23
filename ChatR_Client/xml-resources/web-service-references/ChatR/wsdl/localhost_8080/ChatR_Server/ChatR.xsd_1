@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://chat.minoj.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://chat.minoj.com/">
+
+<xs:element name="AlreadyExistsException" type="tns:AlreadyExistsException"/>
+
+<xs:element name="LoginErrorException" type="tns:LoginErrorException"/>
+
+<xs:element name="createMessage" type="tns:createMessage"/>
+
+<xs:element name="createMessageResponse" type="tns:createMessageResponse"/>
+
+<xs:element name="createThread" type="tns:createThread"/>
+
+<xs:element name="createThreadResponse" type="tns:createThreadResponse"/>
+
+<xs:element name="findThreadByTitle" type="tns:findThreadByTitle"/>
+
+<xs:element name="findThreadByTitleResponse" type="tns:findThreadByTitleResponse"/>
+
+<xs:element name="getMessages" type="tns:getMessages"/>
+
+<xs:element name="getMessagesResponse" type="tns:getMessagesResponse"/>
+
+<xs:element name="getParticipants" type="tns:getParticipants"/>
+
+<xs:element name="getParticipantsResponse" type="tns:getParticipantsResponse"/>
+
+<xs:element name="getPersonalMessages" type="tns:getPersonalMessages"/>
+
+<xs:element name="getPersonalMessagesResponse" type="tns:getPersonalMessagesResponse"/>
+
+<xs:element name="getThreads" type="tns:getThreads"/>
+
+<xs:element name="getThreadsResponse" type="tns:getThreadsResponse"/>
+
+<xs:element name="getUsers" type="tns:getUsers"/>
+
+<xs:element name="getUsersResponse" type="tns:getUsersResponse"/>
+
+<xs:element name="login" type="tns:login"/>
+
+<xs:element name="loginResponse" type="tns:loginResponse"/>
+
+<xs:element name="messages" type="tns:messages"/>
+
+<xs:element name="register" type="tns:register"/>
+
+<xs:element name="registerResponse" type="tns:registerResponse"/>
+
+<xs:element name="threads" type="tns:threads"/>
+
+<xs:element name="updatePassword" type="tns:updatePassword"/>
+
+<xs:element name="updatePasswordResponse" type="tns:updatePasswordResponse"/>
+
+<xs:element name="updateThread" type="tns:updateThread"/>
+
+<xs:element name="updateThreadResponse" type="tns:updateThreadResponse"/>
+
+<xs:element name="users" type="tns:users"/>
+
+<xs:complexType name="getMessages">
+<xs:sequence>
+<xs:element name="thread_id" type="tns:threads" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="threads">
+<xs:sequence>
+<xs:element name="author" type="tns:users" minOccurs="0"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="lastEdited" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="title" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="users">
+<xs:sequence>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="loginId" type="xs:string" minOccurs="0"/>
+<xs:element name="nickname" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="registeredDate" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMessagesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:messages" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="messages">
+<xs:sequence>
+<xs:element name="author" type="tns:users" minOccurs="0"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="postedAt" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="receiver" type="tns:users" minOccurs="0"/>
+<xs:element name="thread" type="tns:threads" minOccurs="0"/>
+<xs:element name="title" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="login">
+<xs:sequence>
+<xs:element name="login_id" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LoginErrorException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="register">
+<xs:sequence>
+<xs:element name="login_id" type="xs:string" minOccurs="0"/>
+<xs:element name="nickname" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registerResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AlreadyExistsException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findThreadByTitle">
+<xs:sequence>
+<xs:element name="title" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findThreadByTitleResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:threads" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getThreads">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getThreadsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:threads" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createMessage">
+<xs:sequence>
+<xs:element name="message" type="tns:messages" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createMessageResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPersonalMessages">
+<xs:sequence>
+<xs:element name="author" type="tns:users" minOccurs="0"/>
+<xs:element name="receiver" type="tns:users" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPersonalMessagesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:messages" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getParticipants">
+<xs:sequence>
+<xs:element name="thread" type="tns:threads" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getParticipantsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:users" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getUsers">
+<xs:sequence>
+<xs:element name="login_id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getUsersResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:users" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createThread">
+<xs:sequence>
+<xs:element name="thread" type="tns:threads" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createThreadResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updatePassword">
+<xs:sequence>
+<xs:element name="user" type="tns:users" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updatePasswordResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateThread">
+<xs:sequence>
+<xs:element name="thread" type="tns:threads" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateThreadResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
